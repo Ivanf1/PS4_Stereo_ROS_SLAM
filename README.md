@@ -85,6 +85,33 @@ The output of the script should confirm that the camera has been successfully se
 8. Complete the [Camera calibration](#camera-calibration).
 9. Run the `psvr_launch` launch file. `roslaunch PSVR_cam_core psvr_launch.launch`
 
+## Modify the PS VR camera cable
+
+If you chose not to use an adapter, two of the main ways to modify the cable are:
+
+1. Splicing a cable.
+
+   This solution is pretty straightforward. You can use an USB 3.0 cable with a male plug. Once you have exposed all the wires from both the psvr camera cable and the other USB cable, you just need to solder together the wires with the same color. You can see an example in [this post](https://www.tumblr.com/ps4eye/79572946666/more-photos-of-cable-wiring-to-clarify-how-the?source=share).
+
+2. Using an USB 3.0 plug.
+
+   You can use an USB 3.0 pcb board connector like the one in [this image](https://github.com/Ivanf1/PS4_Stereo_ROS_SLAM/blob/main/extras/usb_a_breakout.png). In the following table you can see how to connect the wires.
+
+   | Cable   | PCB label |
+   | ------- | --------- |
+   | red     | V+        |
+   | black   | V-        |
+   | purple  | T+        |
+   | orange  | T-        |
+   | drain\* | G         |
+   | blue    | R+        |
+   | yellow  | R-        |
+   | shield  | SG        |
+
+   \* Together with the pairs purple/orange and blue/yellow you will find a drain wire for each of these pairs. Connect these two wires together and then connect them to G.
+
+For more information on the wiring or if you want to solder a plug directly you can refer to [this document](https://conec.com/wp-content/uploads/2023/12/IP67-USB3.0-Assembly-Instructions-Aug-21-2017.pdf).
+
 ## Camera calibration
 
 The following steps should be taken to calibrate your PS4 camera. The repository comes with calibrations files but more accurate results can be achieved after calibrations.
